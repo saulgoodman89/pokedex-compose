@@ -26,13 +26,19 @@ import com.skydoves.pokedex.compose.navigation.PokedexNavHost
 
 @Composable
 fun PokedexMain(composeNavigator: AppComposeNavigator<PokedexScreen>) {
-  PokedexTheme {
-    val navHostController = rememberNavController()
+  PokedexTheme {  // 커스텀 테마를 적용.
+    val navHostController = rememberNavController() // NavHostController 초기화
 
+    /*
+      LaunchedEffect
+      Composable 함수 안에서 Coroutine의 suspend 함수를 실행 할 수 있게 한다.
+      LaunchedEffect의 파라미터를 Unit 혹은 true로 설정하면 , 한 번만 실행된다.
+     컴포지션이 처음실행 될 때 composeNavigator.handleNavigationCommands(navHostController) 를 호출.
+     */
     LaunchedEffect(Unit) {
       composeNavigator.handleNavigationCommands(navHostController)
     }
 
-    PokedexNavHost(navHostController = navHostController)
+    PokedexNavHost(navHostController = navHostController) // 네비게이션 그래프 설정.
   }
 }

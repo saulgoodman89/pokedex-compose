@@ -39,7 +39,17 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
+      /*
+        CompositionLocal : Jetpack Compse에서 테마 , 로케일 , 컨텍스트 등 여러 컴포넌트에서 사용되는 값을 전달 할 때 사용.
+        명시적 : 컴포넌트의 매개변수로 값을 직접 전달
+        암시적 : CompositionLocal을 사용하여 하위 컴포넌트에 값을 전달.
+
+        CompositionLocalProvider : CompositionLocal에 값을 제공하는 컴포저블. 이를 통해 특정 컴포저블 트리의 하위 컴포넌트들이 해당 값을 사용.
+       */
       CompositionLocalProvider(
+        /*
+          CompositionLocalProvider를 이용해 LocalComposeNavigator에  composeNavigator 값을 제공
+         */
         LocalComposeNavigator provides composeNavigator,
       ) {
         PokedexMain(composeNavigator = composeNavigator)
