@@ -20,9 +20,12 @@ import com.skydoves.pokedex.compose.core.model.Pokemon
 import kotlinx.serialization.Serializable
 import kotlin.reflect.typeOf
 
+/*
+
+ */
 sealed interface PokedexScreen {
-  @Serializable
-  data object Home : PokedexScreen
+  @Serializable // 직렬화 , 역직렬화가 가능하게 한다.
+  data object Home : PokedexScreen  // data object : 싱글톤 객체를 데이터클래스 처럼 정의 할 수 있게 한다. 유일한 오브젝트를 가지며 데이터 클래스의 일부 기능을 제공.
 
   @Serializable
   data class Details(val pokemon: Pokemon) : PokedexScreen {

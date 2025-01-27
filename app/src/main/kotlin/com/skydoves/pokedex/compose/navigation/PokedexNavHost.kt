@@ -24,7 +24,15 @@ import com.skydoves.pokedex.compose.core.navigation.PokedexScreen
 
 @Composable
 fun PokedexNavHost(navHostController: NavHostController) {
+  /*
+    SharedTransitionLayout
+    두 화면 사이에 공통으로존재하는 요소(이미지 , 아이콘 텍스트 등)가 부드럽게 이동하거나 변형되는 효과를 말한다.
+
+   */
   SharedTransitionLayout {
+    /*
+      네비게이션 그래프 설정.
+     */
     NavHost(
       navController = navHostController,
       startDestination = PokedexScreen.Home,

@@ -24,7 +24,17 @@ import com.skydoves.pokedex.compose.feature.details.PokedexDetails
 import com.skydoves.pokedex.compose.feature.home.PokedexHome
 
 context(SharedTransitionScope)
+/*
+  NavHost
+    - 네비게이션 호스트 , 현재 활성화된 스크린을 표시하고 관리
+  NavGraphBuilder
+    - 네비게이션 그래프를 구성하는 빌더 객체.
+ */
 fun NavGraphBuilder.pokedexNavigation() {
+  /*
+    PokedexScreen.Home을 정의.
+    composabledms NavGraphBuilder의 확장 함수.
+   */
   composable<PokedexScreen.Home> {
     PokedexHome(this)
   }
